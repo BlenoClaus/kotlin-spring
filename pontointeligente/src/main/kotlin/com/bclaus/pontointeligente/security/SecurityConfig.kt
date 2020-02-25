@@ -41,6 +41,6 @@ class SecurityConfig(val funcionarioDetailsService: FuncionarioDetailsService) :
     }
 
     @Bean
-    private fun encoder(): PasswordEncoder = BCryptPasswordEncoder()
+    fun encoder(): PasswordEncoder = BCryptPasswordEncoder()
 
 }

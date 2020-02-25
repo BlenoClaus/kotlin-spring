@@ -43,8 +43,8 @@ class LancamentoController(val lancamentoService: LancamentoService,
             return ResponseEntity.badRequest().body(response)
         }
 
-        val lancamento: Lancamento = converterDtoParaLancamento(lancamentoDto, result)
-        lancamentoService.persistir(lancamento)
+        var lancamento: Lancamento = converterDtoParaLancamento(lancamentoDto, result)
+        lancamento = lancamentoService.persistir(lancamento)
         response.data = converterLancamentoDto(lancamento)
         return ResponseEntity.ok(response)
     }
@@ -84,17 +84,17 @@ class LancamentoController(val lancamentoService: LancamentoService,
     fun atualizar(@PathVariable("id") id: String, @Valid @RequestBody lancamentoDto: LancamentoDto,
                   result: BindingResult): ResponseEntity<Response<LancamentoDto>> {
 
-        val response: Response<LancamentoDto> = Response<LancamentoDto>()
+        val response: Response<LancamentoDto> = Response()
         validarFuncionario(lancamentoDto, result)
         lancamentoDto.id = id
-        val lancamento: Lancamento = converterDtoParaLancamento(lancamentoDto, result)
+        var lancamento: Lancamento = converterDtoParaLancamento(lancamentoDto, result)
 
         if (result.hasErrors()) {
             for (erro in result.allErrors) erro.defaultMessage?.let { response.erros.add(it) }
             return ResponseEntity.badRequest().body(response)
         }
 
-        lancamentoService.persistir(lancamento)
+        lancamento = lancamentoService.persistir(lancamento)
         response.data = converterLancamentoDto(lancamento)
         return ResponseEntity.ok(response)
     }
