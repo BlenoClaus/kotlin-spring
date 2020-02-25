@@ -5,7 +5,9 @@ import com.bclaus.pontointeligente.repository.LancamentoRepository
 import com.bclaus.pontointeligente.service.LancamentoService
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
+import org.springframework.stereotype.Service
 
+@Service
 class LancamentoServiceImpl(val lancamentoRepository: LancamentoRepository) : LancamentoService {
 
     override fun buscarPorFuncionarioId(funcionarioId: String, pageRequest: PageRequest): Page<Lancamento>
