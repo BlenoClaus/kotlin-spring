@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "beb2540d-7d16-4657-9667-9f71c991c613",
+		"name": "Spring-Kotlin-Mongo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Lançamento - delete",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin@empresa.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/lancamentos/5e559a15b9ddd73a5f934bde",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"lancamentos",
+						"5e559a15b9ddd73a5f934bde"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lançamento - listar por funcionario ID",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "funcionario@empresa.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/lancamentos/funcionario/5e5599ddb9ddd73a5f934bdd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"lancamentos",
+						"funcionario",
+						"5e5599ddb9ddd73a5f934bdd"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
